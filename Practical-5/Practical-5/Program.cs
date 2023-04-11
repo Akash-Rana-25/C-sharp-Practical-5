@@ -4,16 +4,37 @@
     {
         static void Main(string[] args)
         {
-            int[] myNum = { 10, 20, 30, 40, 50 };
 
-            for (int i = 0; i < myNum.Length; i++)
+
+            int[] myNum=new int [5];
+
+            for (int i = 0; i < 5; i++)
             {
+                Console.WriteLine("enter Array");
+               
+                if ((int.TryParse(Console.ReadLine(),out int value)))
+                {
+                    myNum[i] = value;
+                }
+                else
+                {
+                    myNum[i] = 0;   
+                }
                 Console.WriteLine($"myNum[{i}]={myNum[i]}");
-            
             }
+
             try
             {
-                myNum[5] = 15;
+                Console.WriteLine("enter Array if you want to genrate error");
+
+                if ((int.TryParse(Console.ReadLine(), out int value)))
+                {
+                    myNum[5] = value;
+                }
+                else
+                {
+                    myNum[5] = 0;
+                }
 
             }
             catch (IndexOutOfRangeException e)
